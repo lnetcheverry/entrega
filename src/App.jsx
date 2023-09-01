@@ -7,7 +7,7 @@ function App () {
   return (
     <>
     <Navbar className/>
-    <ItemListContainer greeting="Encontra lo que estas buscando para tu gabinete y tu trabajo.."/>
+    <ItemListContainer greeting="Encontra lo que estas buscando para tu gabinete."/>
    
     </>
   )
