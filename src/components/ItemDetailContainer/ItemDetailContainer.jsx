@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getProductById } from "../../asincMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
+import classes from "./ItemDetailContainer.module.css"
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
@@ -19,7 +20,7 @@ const ItemDetailContainer = () => {
     console.log(product)
     return(
         <div>
-            <h1>Detalle de producto</h1>
+            <h1 className={classes.h1}>Detalle de producto</h1>
             <ItemDetail {...product} />
         </div>
     )

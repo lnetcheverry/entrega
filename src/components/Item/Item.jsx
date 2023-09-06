@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom"
-
+import classes from './item.module.css'
 const Item = ({ id, name, img, price }) => {
     const navigate = useNavigate()
 
         return (
             <div>
-                <h3>{name}</h3>
+                <h3 className={classes.h3}>{name}</h3>
                 <img src={img} style={{ width: 100 }} />
                 <h3>${price}</h3>
-                <button onClick={() => navigate(`/detail/${id} `)}>Detalle</button>
+                <button className={classes.button} onClick={() => navigate(`/detail/${id} `)}>Detalle</button>
             </div>
         )
 }
