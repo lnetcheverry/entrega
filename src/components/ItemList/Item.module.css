@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .tipoDeCartas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-Content: center;
+    align-items: start;
+    background-color: rgba(245, 245, 220, 0.678);
+  }
+  
+  @media (max-width: 1200px) {
+    .tipoDeCartas {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .tipoDeCartas {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 566px) {
+    .tipoDeCartas {
+      grid-template-columns: 1fr;
+    }
+  }

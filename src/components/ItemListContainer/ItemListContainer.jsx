@@ -6,20 +6,31 @@ import classes from './ItemListContainer.module.css'
 
 const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const {categoryId} = useParams ()
+
     
     useEffect(() => {
+        setLoading(true)
+
         const asyncFunction = categoryId ? getProductByCategory : getProduct
 
         asyncFunction(categoryId)
-             .then (res => {
-                setProducts(res)
+             .then (result => {
+                setProducts(result)
              })
              .catch(error => {
                 console.error(error)
              })
+             .finally(() => {
+                setLoading(false)
+             })
     }, [categoryId])
+
+    if(loading) {
+        return <h1>cargando productos..</h1>
+    }
     
     return(
         <div>

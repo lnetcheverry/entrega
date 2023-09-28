@@ -1,5 +1,5 @@
 import classes from "./Navbar.module.css"
-import CardWidget from "../CardWidget/CardWidget"
+import CartWidget from "../CardWidget/CartWidget"
 import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
                 <button className={classes.button} onClick={() => navigate (`/category/Insumos`)}>Insumos</button>
                 <button className={classes.button} onClick={() => navigate (`/category/Herramientas`)}>Herramientas</button>
              </section>
-             <CardWidget/>
+             <CartWidget/>
         </nav>
     )
 }

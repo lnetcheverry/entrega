@@ -6,9 +6,13 @@ import classes from "./ItemDetailContainer.module.css"
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
+    const [loading, setLoading] = useState(true)
+
     const { productId } = useParams ()
 
     useEffect(() => {
+        setLoading(true)      
+        
         getProductById(productId)
          .then(res => {
             setProduct(res)
@@ -16,8 +20,16 @@ const ItemDetailContainer = () => {
          .catch(error => {
             console.error(error)
          })
+         .finally(() => {
+            setLoading(false)
+         })
+
     }, [productId])
-    console.log(product)
+
+    if(loading) {
+        return <h1>Cargando producto</h1>
+    }
+
     return(
         <div>
             <h1 className={classes.h1}>Detalle de producto</h1>
