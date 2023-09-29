@@ -1,39 +1,9 @@
-import { useState, useContext } from "react"
+import { useState, createContext,useContext } from "react"
 import { CartContext } from "../Context/CartContext"
 import { useCart } from "../Context/CartContext"
 import { Link } from 'react-router-dom'
+import { useNotification } from "../Notification/NotificationService"
 
-import ItemCount from "../ItemCount/ItemCount"
-import classes from './ItemDetail.module.css'
-
-/* const ItemDetail = ({ name, img, price, description, stock}) => {
-    const [quantity, setQuantity] = useState (0)
-
-    const handleOnAdd = (quantity) => {
-        console.log('agregado' + quantity)
-        setQuantity(quantity)
-        
-    }
-return (
-
-    <div>
-        <h1 className={classes.h1}>{name}</h1>
-        <img src={img} style={{ width:400}} /> 
-        <h3>${price}</h3>
-        <h3>{description}</h3>
-        {
-            quantity == 0 ? (
-        <ItemCount stock={stock} onAdd={handleOnAdd}/>
-            ) : (
-                <button>Finalizar Compra</button>
-            )    
-        }
-        
-    
-    </div>
-)
-}
-export default ItemDetail */
 
 const InputCount = ({ onAdd, stock, initial }) => {
     const [count, setCount] = useState(initial)
@@ -84,14 +54,14 @@ const ItemDetail = ({ id, name, category, img, price, stock, description,  }) =>
     const ItemCount = inputType === 'input' ? InputCount : ButtonCount
 
     const { addItem } = useCart( CartContext)
-    //const { setNotification } = useNotification()
+    const { setNotification } = useNotification()
 
     const handleOnAdd = (quantity) => {
         const objProductToAdd = {
             id, name, price, quantity
         }
         addItem(objProductToAdd)
-        //setNotification('error', `Se agregaron correctamente ${quantity} ${name} al carrito`)
+        setNotification(`Se agregaron correctamente ${quantity} ${name} al carrito`)
         console.log('agregue al carrito: ', quantity)
 
         setQuantity(quantity)
