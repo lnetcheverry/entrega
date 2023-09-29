@@ -1,4 +1,5 @@
 # React + Vite
+Sitio diseñado para ecommerce de venta sobre cosas de manicuria
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
